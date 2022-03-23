@@ -2,8 +2,7 @@
   <%= @competition.puzzle_text %>
 </h2>
 <%= form_tag({ :controller => "competitions", :action => "guess" }, :method => "post", :class => "form_class_to_be_made") do %>
-  <%= hidden_field_tag(:competition_id, @competition.id) %>
-  <%= text_field_tag(:username) %>
+  <%= text_field_tag(:guess) %>
   <%= submit_tag("Guess") %>
 <% end %>
 <h4>
