@@ -2,3 +2,11 @@
   You dastardly riddle answerer, you got it!
 </h1>
 This has happened <%= @competition.correct_answer_count %> times
+
+<%= form_with url: "/winners", method: :post do |form| %>
+  <%= form.label :name, "Enter a name for the board of honor:" %>
+  <%= form.text_field :name %>
+  <%= form.label :email, "Enter an email address so we can follow up about your prize:" %>
+  <%= form.text_field :email %>
+  <%= form.submit "Submit" %>
+<% end %>
