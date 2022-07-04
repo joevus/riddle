@@ -1,4 +1,4 @@
-class WinnerController < ApplicationController
+class WinnersController < ApplicationController
     def create
     end
 
