@@ -1,2 +1,2 @@
-module WinnerHelper
+module WinnersHelper
 end
