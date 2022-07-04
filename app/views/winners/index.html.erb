@@ -1,0 +1,10 @@
+<h1> Winner Board </h1>
+
+<% @winners.each do |winner| %>
+    <div>
+        <hr>
+        <p> <%= winner.name %> </p>
+        <p> <%= winner.competition.name %> </p>
+        <p> rank: <%= winner.rank %> </p>
+    </div>
+<% end %>
