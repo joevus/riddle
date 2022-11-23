@@ -1,8 +1,17 @@
 class Competition < ApplicationRecord
   before_create :assign_defaults
   has_one :answer_key
+  has_many :winner
 
   validate :at_most_one_active
+
+  def self.with_winners
+    competitions = Competition.all
+    competitions = competitions.select do |competition|
+      Winner.where(:competition_id => competition.id).count >= 1
+    end
+    competitions
+  end
 
   def is_guess_correct(guess)
     guess == self.answer_key.key

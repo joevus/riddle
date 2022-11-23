@@ -1,0 +1,16 @@
+<h1> Winner Board </h1>
+
+<% @competitions.each do |competition| %>
+    <div>
+        <hr>
+        <h3> <%= competition.puzzle_text %> </h3>
+        <% competition.winner.each do |winner| %>
+            <p>
+                name <%= winner.name %>
+            </p>
+            <p>
+                rank <%= winner.rank %>
+            </p>
+        <% end %>
+    </div>
+<% end %>
