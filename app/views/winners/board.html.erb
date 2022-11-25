@@ -4,12 +4,10 @@
     <div>
         <hr>
         <h3> <%= competition.puzzle_text %> </h3>
+        <p> Numer of times correctly answered: <%= competition.correct_answer_number %> </p>
         <% competition.top_winners(10).each do |winner| %>
             <p>
-                name <%= winner.name %>
-            </p>
-            <p>
-                rank <%= winner.rank %>
+                name <%= winner.name %> rank <%= winner.rank %>
             </p>
         <% end %>
     </div>
