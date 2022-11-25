@@ -8,9 +8,13 @@ class Competition < ApplicationRecord
   def self.with_winners
     competitions = Competition.all
     competitions = competitions.select do |competition|
-      Winner.where(:competition_id => competition.id).count >= 1
+      Winner.where(:competition_id => competition.id ).count >= 1
     end
     competitions
+  end
+
+  def top_winners(num)
+    Winner.where(:competition_id => self.id).order(:ranking => :desc).limit(num)
   end
 
   def is_guess_correct(guess)
