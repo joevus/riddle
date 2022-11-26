@@ -8,3 +8,11 @@
 <h4>
   <%= @competition.guide %>
 </h4>
+<p>
+  This riddle has been guessed right <%= @competition.correct_answer_number %>
+  <% if(@competition.correct_answer_number == 1) %>
+    time
+  <% else %>
+    times
+  <% end %>
+</p>
