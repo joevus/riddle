@@ -1,18 +1,25 @@
-<h2>
-  <%= @competition.puzzle_text %>
-</h2>
-<%= form_tag({ :controller => "competitions", :action => "guess" }, :method => "post", :class => "form_class_to_be_made") do %>
-  <%= text_field_tag(:guess) %>
-  <%= submit_tag("Guess") %>
-<% end %>
-<h4>
-  <%= @competition.guide %>
-</h4>
-<p>
-  This riddle has been guessed right <%= @competition.correct_answer_number %>
-  <% if(@competition.correct_answer_number == 1) %>
-    time
-  <% else %>
-    times
+<div class="active_competition wrapper">
+  <h2 class="headliner">
+    <%= @competition.puzzle_text %>
+  </h2>
+  <%= form_tag({ :controller => "competitions", :action => "guess" }, :method => "post", :class => "form_class_to_be_made") do %>
+    <div class="guess_field">
+      <%= text_field_tag(:guess, '', :autofocus => true) %>
+    </div>
+    <div class="submit_button">
+      <%= submit_tag("Submit") %>
+    </div>
   <% end %>
-</p>
+  <p class="hint">
+    hint: <%= @competition.guide %>
+  </p>
+  <p>
+    Correct guesses: <%= @competition.correct_answer_number %>
+  </p>
+  <% if(@competition.correct_answer_number == 0) %>
+    <p>Psst, you could be first!</p>
+  <% end %>
+  <p>
+  <a href="/winners/board">Go to winner board</a>
+  </p>
+</div>
