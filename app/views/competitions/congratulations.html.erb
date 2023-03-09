@@ -1,12 +1,14 @@
 <h1>
   You dastardly riddle answerer, you got it!
 </h1>
-This has happened <%= @competition.correct_answer_count %> times
+This riddle has been answered correctly <%= @competition.correct_answer_count %> times
+
+<p>Submit the form below if you'd like this answer to be counted. You may leave the fields blank if you wish.</p>
 
 <%= form_with url: "/winners", method: :post do |form| %>
-  <%= form.label :name, "Enter a name for the board of honor:" %>
+  <%= form.label :name, "Enter a name for the winner:" %>
   <%= form.text_field :name %>
-  <%= form.label :email, "Enter an email address so we can follow up about your prize:" %>
+  <%= form.label :email, "Enter an email address if you want us to follow up about a prize:" %>
   <%= form.text_field :email %>
   <%= form.hidden_field :competition_id, :value => @competition.id %>
   <%= form.hidden_field :correct_answer_count, :value => @competition.correct_answer_count %>
